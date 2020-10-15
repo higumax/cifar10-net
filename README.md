@@ -40,11 +40,17 @@ truck: 89.8%
 - Torchvision (0.7.0)
 - numpy (1.18.5)
 
-You can setup this environment by building the official docker image of pytorch.
+If you have installed docker, you can setup this environment by building the official docker image of pytorch.
 ```
 docker pull pytorch/pytorch:1.6.0-cuda10.1-cudnn7-runtime
 ```
 https://hub.docker.com/r/pytorch/pytorch/tags
 
 When you start a container from the docker image, 
-it is needed to mount this repository on the staring container.
+it is needed to mount this repository on the staring container.  
+
+For example, I do the following command in the repository.
+```
+docker run --gpus=all --rm -v $(pwd)/:/workspace -it <IMAGE ID>
+```
+( Remove `--gpus=all` if your computer does not have a GPU. )
